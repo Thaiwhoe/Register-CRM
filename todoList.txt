@@ -28,7 +28,7 @@ Todo List
     -DONE View details page of leads
 
 
--- Change and delete leads
+-DONE- Change and delete leads
 -- Convert leads to clients
 -- Change and delete clients
 -- implement solution for teams
