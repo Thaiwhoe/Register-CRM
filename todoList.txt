@@ -29,8 +29,15 @@ Todo List
 
 
 -DONE- Change and delete leads
--- Convert leads to clients
--- Change and delete clients
+-DONE- Convert leads to clients
+-Done- Show list of clients
+-Done- Show details page for the client
+-DONE- Change and delete clients
+-Done- Add Client
 -- implement solution for teams
+---- Create Teams App
+---- Create Model for teams
+---- Create new teams
+---- You need to be a member of a team
 -- Implement a payment solution/ Subscription / Monthly recurring payment
 -- Deploy

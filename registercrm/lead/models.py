@@ -34,6 +34,7 @@ class Lead(models.Model):
         max_length=10, choices=CHOICES_PRIORITY, default=MEDIUM)
     status = models.CharField(
         max_length=10, choices=CHOICES_STATUS, default=NEW)
+    converted = models.BooleanField(default=False)
     created_by = models.ForeignKey(
         User, related_name='lead', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
