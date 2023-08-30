@@ -34,10 +34,12 @@ Todo List
 -Done- Show details page for the client
 -DONE- Change and delete clients
 -Done- Add Client
+
+
 -- implement solution for teams
----- Create Teams App
----- Create Model for teams
----- Create new teams
----- You need to be a member of a team
+    -DONE- Create Teams App
+    -DONE- Create Model for teams
+    -- when you create a led make sure team is set
+    -- When you craete a client make sure team is set
 -- Implement a payment solution/ Subscription / Monthly recurring payment
 -- Deploy
