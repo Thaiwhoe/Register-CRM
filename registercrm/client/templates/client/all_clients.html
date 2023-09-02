@@ -3,7 +3,7 @@
 {% block title %}All Clients{% endblock %}
 
 {% block content %}
-
+<div class="p-4 sm:ml-64">
     <div class="py-6 px-6">
         <h1 class="mb-4 text-xl">All Clients</h1>
         <a href="{% url 'add_client' %}" class="inline-block py-4 px-6 bg-green-700 rounded-xl text-white">Add Clients</a>
@@ -29,5 +29,5 @@
             <p class="text-center mt-10 text-sm mb-10"><i>List of clients is empty</i></p>
         {% endif %}
     </div>
-
+</div>
 {% endblock %}

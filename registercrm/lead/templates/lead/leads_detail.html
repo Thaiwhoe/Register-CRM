@@ -3,6 +3,8 @@
 {% block title %}{{ lead.name }}{% endblock %}
 
 {% block content %}
+
+<div class="p-4 sm:ml-64">
     <div class="py-6 px-6">
         <h1 class="mb-4 text-xl">{{ lead.name }}</h1>
 
@@ -31,5 +33,5 @@
 
         <a href="{% url 'all_leads' %}">Back to leads</a>
     </div>
-
+</div>
 {% endblock %}

@@ -3,5 +3,36 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block content %}
-    <h1 class="text-xl">Dashboard</h1>
+<div class="p-4 sm:ml-64">
+    <div class="py-6 px-6">
+        <h1 class="text-xl mb-6">Dashboard</h1>
+
+        <div class="flex space-x-8">
+            <div class="w-1/2 px-4 py-4 bg-gray-100 rounded-xl leads">
+                <h2 class="text-lg mb-4">Newest Leads</h2>
+
+                {% for lead in leads%}
+                    <div class="mb-2 lead">
+                        <h3 class="font-semibold">{{ lead.name }}</h3>
+
+                        <p class="text-xs">Status: {{ lead.get_status_display }}</p>
+                        <p class="text-xs">Priority: {{ lead.get_priority_display }}</p>
+
+                        <a class="text-sm" href="{% url 'leads_detail' lead.pk %}"><i>Details</i></a>
+                    </div>
+                {% endfor%}
+            </div>
+            <div class="w-1/2 px-4 py-4 bg-gray-100 rounded-xl clients">
+                <h2 class="text-lg mb-4">Newest Clients</h2>
+                {% for client in clients%}
+                    <div class="mb2 client">
+                        <h3 class="font-semibold">{{ client.name }}</h3>
+
+                        <a href="{% url 'client_detail' client.pk %}" class="text-sm">Details</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

@@ -3,6 +3,7 @@
 {% block title %}{{ client.name }}{% endblock %}
 
 {% block content %}
+<div class="p-4 sm:ml-64">
     <div class="py-6 px-6">
         <h1 class="mb-4 text-xl">{{ client.name }}</h1>
 
@@ -24,5 +25,6 @@
 
         <a href="{% url 'all_clients' %}">Back to clients</a>
     </div>
+</div>
 
 {% endblock %}
