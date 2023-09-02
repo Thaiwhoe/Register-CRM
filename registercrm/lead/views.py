@@ -13,7 +13,7 @@ def all_leads(request):
     leads = Lead.objects.filter(created_by=request.user, converted=False)
 
     return render(request, 'lead/all_leads.html', {
-        'leads': leads
+        'leads': leads,
     })
 
 
@@ -39,6 +39,7 @@ def leads_delete(request, pk):
 
 @login_required
 def add_lead(request):
+    team = Team.objects.filter(created_by=request.user)[0]
     if request.method == 'POST':
         form = AddLeadForm(request.POST)
 
@@ -56,13 +57,15 @@ def add_lead(request):
         form = AddLeadForm()
 
     return render(request, 'lead/add_lead.html', {
-        'form': form
+        'form': form,
+        'team': team
     })
 
 
 @login_required
 def edit_lead(request, pk):
     lead = get_object_or_404(Lead, created_by=request.user, pk=pk)
+
     if request.method == 'POST':
         form = AddLeadForm(request.POST, instance=lead)
 

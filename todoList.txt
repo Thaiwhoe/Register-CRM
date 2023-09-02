@@ -43,8 +43,19 @@ Todo List
     -DONE- When you craete a client make sure team is set
     -DONE- if you login in and you are not part of a team, create one
     -DONE- Make it possible to edit team name if you are the owner
-    - limit number of leads
-    - limit number of clients
+    -DONE- limit number of leads
+    -Done- limit number of clients
+
+--Refactoring
+    - Install Tailwind instead of using the CDN
+    - Add name spaces to all the apps
+    - Replace the leads list with a class based view
+    - Replace the leads detail with a class based view
+    - Replace the leads delete with a class based view
+    - Replace the leads edit with a class based view
+    - Replace the leads add with a class based view
+        - And give it a better name
+    - Replace the leads convert with a class based view
 
 -- Implement a payment solution/ Subscription / Monthly recurring payment
 -- Deploy
