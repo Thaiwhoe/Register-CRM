@@ -6,7 +6,7 @@
 <div class="p-4 sm:ml-64">
     <div class="py-6 px-6">
         <h1 class="mb-4 text-xl">All Clients</h1>
-        <a href="{% url 'add_client' %}" class="inline-block py-4 px-6 bg-green-700 rounded-xl text-white">Add Clients</a>
+        <a href="{% url 'clients:add' %}" class="inline-block py-4 px-6 bg-green-700 rounded-xl text-white">Add Clients</a>
 
         {% if clients %}
             <div class="mt-6 px-2 flex justify-between">
@@ -17,7 +17,7 @@
 
             {% for client in clients %}
                 <div class="px-2 flex mt-1.5 justify-between">
-                    <p class="py-4 px-2 w-full {% cycle 'bg-gray-100' '' %}"> <a href = "{% url 'client_detail' client.id %}">{{ client.name }}</a> </p>
+                    <p class="py-4 px-2 w-full {% cycle 'bg-gray-100' '' %}"> <a href = "{% url 'clients:detail' client.id %}">{{ client.name }}</a> </p>
                     <p class="py-4 px-2 w-full {% cycle 'bg-gray-100' '' %}">{{ client.email }}</p>
                     <p class="py-4 px-2 w-full {% cycle 'bg-gray-100' '' %}">{{ client.description }}</p>
                 </div>

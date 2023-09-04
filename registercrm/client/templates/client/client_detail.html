@@ -19,11 +19,11 @@
         <p class="font-normal text-sm mb-2"><i>{{ client.modified_at }}</i></p>
 
         <hr class="my-4">
-        <a class="px-6 rounded-xl text-white py-3 bg-red-700" href="{% url 'delete_client' client.id %}">Delete</a>
-        <a class="px-6 rounded-xl text-white py-3 bg-teal-700" href="{% url 'edit_client' client.id %}">Edit</a>
+        <a class="px-6 rounded-xl text-white py-3 bg-red-700" href="{% url 'clients:delete' client.id %}">Delete</a>
+        <a class="px-6 rounded-xl text-white py-3 bg-teal-700" href="{% url 'clients:edit' client.id %}">Edit</a>
         <hr class="my-4">
 
-        <a href="{% url 'all_clients' %}">Back to clients</a>
+        <a href="{% url 'clients:list' %}">Back to clients</a>
     </div>
 </div>
 

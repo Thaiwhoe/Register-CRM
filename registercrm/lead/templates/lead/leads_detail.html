@@ -26,12 +26,12 @@
         <p class="font-normal text-sm mb-10"><i>{{ lead.modified_at }}</i></p>
 
         <hr class="my-4">
-        <a class="px-6 rounded-xl text-white py-3 bg-green-700" href="{% url 'lead_convert' lead.id %}">Move to Converted</a>
-        <a class="px-6 rounded-xl text-white py-3 bg-red-700" href="{% url 'leads_delete' lead.id %}">Delete</a>
-        <a class="px-6 rounded-xl text-white py-3 bg-teal-700" href="{% url 'edit_lead' lead.id %}">Edit</a>
+        <a class="px-6 rounded-xl text-white py-3 bg-green-700" href="{% url 'leads:convert' lead.id %}">Move to Converted</a>
+        <a class="px-6 rounded-xl text-white py-3 bg-red-700" href="{% url 'leads:delete' lead.id %}">Delete</a>
+        <a class="px-6 rounded-xl text-white py-3 bg-teal-700" href="{% url 'leads:edit' lead.id %}">Edit</a>
         <hr class="my-4">
 
-        <a href="{% url 'all_leads' %}">Back to leads</a>
+        <a href="{% url 'leads:list' %}">Back to leads</a>
     </div>
 </div>
 {% endblock %}

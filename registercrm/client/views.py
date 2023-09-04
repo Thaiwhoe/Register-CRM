@@ -28,12 +28,14 @@ def client_detail(request, pk):
 
 @login_required
 def add_client(request):
-    team = Team.objects.filter(created_by=request.user)
+    team = Team.objects.filter(created_by=request.user)[0]
+
     if request.method == 'POST':
         form = AddClientForm(request.POST)
 
         if form.is_valid():
             team = Team.objects.filter(created_by=request.user)[0]
+
             client = form.save(commit=False)
             client.created_by = request.user
             client.team = team
@@ -41,7 +43,7 @@ def add_client(request):
 
             messages.success(request, 'Client has been added successfully')
 
-            return redirect('all_clients')
+            return redirect('clients:list')
 
     else:
         form = AddClientForm()
@@ -59,7 +61,7 @@ def delete_client(request, pk):
 
     messages.success(request, 'Deleted Successfully')
 
-    return redirect('all_clients')
+    return redirect('clients:list')
 
 
 @login_required
@@ -73,7 +75,7 @@ def edit_client(request, pk):
             form.save()
 
             messages.success(request, 'Client details editted successfully')
-            return redirect('all_clients')
+            return redirect('clients:list')
 
     else:
         form = AddClientForm(instance=client)

@@ -48,7 +48,7 @@ Todo List
 
 --Refactoring
     -DONE- Install Tailwind instead of using the CDN
-    - Add name spaces to all the apps
+    -DONE- Add name spaces to all the apps
     - Replace the leads list with a class based view
     - Replace the leads detail with a class based view
     - Replace the leads delete with a class based view
