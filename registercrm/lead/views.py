@@ -1,6 +1,11 @@
+from typing import Any
 from django.contrib import messages
+from django.db import models
+from django.db.models.query import QuerySet
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.views.generic import ListView, DetailView
+from django.utils.decorators import method_decorator
 
 from .forms import AddLeadForm
 from .models import Lead
@@ -8,23 +13,29 @@ from client.models import Client
 from team.models import Team
 
 
-@login_required
-def all_leads(request):
-    leads = Lead.objects.filter(created_by=request.user, converted=False)
+class LeadListView(ListView):
+    model = Lead
 
-    return render(request, 'lead/all_leads.html', {
-        'leads': leads,
-    })
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
+    def get_queryset(self):
+        queryset = super(LeadListView, self).get_queryset()
+        return queryset.filter(
+            created_by=self.request.user, converted=False)
 
 
-@login_required
-def leads_detail(request, pk):
-    lead = get_object_or_404(Lead, created_by=request.user, pk=pk)
-    # lead = Lead.objects.filter(created_by=request.user).get(pk=pk)
+class LeadDetailView(DetailView):
+    model = Lead
 
-    return render(request, 'lead/leads_detail.html', {
-        'lead': lead
-    })
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
+    def get_queryset(self):
+        queryset = super(LeadDetailView, self).get_queryset()
+        return queryset.filter(created_by=self.request.user, pk=self.kwargs.get('pk'))
 
 
 @login_required
