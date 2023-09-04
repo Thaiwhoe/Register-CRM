@@ -46,16 +46,21 @@ Todo List
     -DONE- limit number of leads
     -Done- limit number of clients
 
---Refactoring
+-DONE- Refactoring
     -DONE- Install Tailwind instead of using the CDN
     -DONE- Add name spaces to all the apps
-    - Replace the leads list with a class based view
-    - Replace the leads detail with a class based view
-    - Replace the leads delete with a class based view
-    - Replace the leads edit with a class based view
-    - Replace the leads add with a class based view
-        - And give it a better name
-    - Replace the leads convert with a class based view
+    -DONE- Replace the leads list with a class based view
+    -DONE- Replace the leads detail with a class based view
+    -DONE- Replace the leads delete with a class based view
+    -DONE- Replace the leads edit with a class based view
+    -DONE- Replace the leads add with a class based view
+        -DONE- And give it a better name
+    -DONE- Replace the leads convert with a class based view
+
+- Export information of leads, clients etc
+- communicate with each other
+- Add comments and similar leads and clients
+- Upload documents/files to leads and clients
 
 -- Implement a payment solution/ Subscription / Monthly recurring payment
 -- Deploy
