@@ -1,3 +1,5 @@
+import csv
+from django.http import HttpResponse
 from typing import Any, Dict
 from django.contrib import messages
 from django.db import models
@@ -15,6 +17,25 @@ from .models import Lead
 
 from client.models import Client, Comment as ClientComment
 from team.models import Team
+
+
+@login_required
+def lead_export_csv(request):
+    leads = Lead.objects.filter(created_by=request.user, converted=False)
+
+    response = HttpResponse(
+        content_type='text/csv',
+        headers={'Content-Disposition': 'attachment; filename="leads.csv"'},
+    )
+
+    writer = csv.writer(response)
+    writer.writerow(['Leads', 'Description', 'Created at', 'Created by'])
+
+    for lead in leads:
+        writer.writerow([lead.name, lead.description,
+                        lead.created_at, lead.created_by])
+
+    return response
 
 
 class LeadListView(ListView):

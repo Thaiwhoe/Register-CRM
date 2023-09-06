@@ -6,8 +6,9 @@
 <div class="p-4 sm:ml-64">
     <div class="py-6 px-6">
         <h1 class="mb-4 text-xl">All Clients</h1>
-        <a href="{% url 'clients:add' %}" class="inline-block py-4 px-6 bg-green-700 rounded-xl text-white">Add Clients</a>
 
+        <a href="{% url 'clients:add' %}" class="inline-block py-4 px-6 bg-green-700 rounded-xl text-white">Add Clients</a>
+        <a class="px-6 rounded-xl text-white py-4 px-6 bg-red-700" href="{% url 'clients:export' %}">Export as CSV</a>
         {% if clients %}
             <div class="mt-6 px-2 flex justify-between">
                 <p class="py-4 px-2 bg-gray-200 font-semibold w-full">Name</p>

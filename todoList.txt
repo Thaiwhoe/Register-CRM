@@ -57,7 +57,7 @@ Todo List
         -DONE- And give it a better name
     -DONE- Replace the leads convert with a class based view
 
-- Export information of leads, clients etc
+-DONE- Export information of leads, clients as CSV etc
 - communicate with each other
 -DONE- Add comments and similar leads and clients
 -DONE- Upload documents/files to leads and clients
