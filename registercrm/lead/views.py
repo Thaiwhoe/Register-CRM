@@ -9,7 +9,7 @@ from django.views import View
 from django.utils.decorators import method_decorator
 from django.urls import reverse_lazy
 
-from .forms import AddCommentForm
+from .forms import AddCommentForm, AddFileForm
 from .models import Lead
 
 
@@ -44,6 +44,7 @@ class LeadDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['form'] = AddCommentForm()
+        context['fileform'] = AddFileForm()
 
         return context
 
@@ -124,6 +125,30 @@ class LeadUpdateView(UpdateView):
         context['title'] = 'Edit Lead'
 
         return context
+
+
+class AddFileView(View):
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        pk = kwargs.get('pk')
+
+        form = AddFileForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            team = Team.objects.filter(created_by=self.request.user)[0]
+            file = form.save(commit=False)
+            file.team = team
+            file.lead_id = pk
+            file.created_by = request.user
+            file.save()
+
+            messages.success(self.request, 'Upload Successful')
+
+        return redirect('leads:detail', pk=pk)
 
 
 class AddCommentView(View):

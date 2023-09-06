@@ -59,8 +59,8 @@ Todo List
 
 - Export information of leads, clients etc
 - communicate with each other
-- Add comments and similar leads and clients
-- Upload documents/files to leads and clients
+-DONE- Add comments and similar leads and clients
+-DONE- Upload documents/files to leads and clients
 
 -- Implement a payment solution/ Subscription / Monthly recurring payment
 -- Deploy
