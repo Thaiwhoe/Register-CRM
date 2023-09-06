@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 
-from .forms import AddClientForm
+from .forms import AddClientForm, AddCommentForm
 from .models import Client
 from team.models import Team
 
@@ -21,8 +21,25 @@ def client_detail(request, pk):
     client = get_object_or_404(Client, created_by=request.user, pk=pk)
     # lead = Lead.objects.filter(created_by=request.user).get(pk=pk)
 
+    if request.method == 'POST':
+        form = AddCommentForm(request.POST)
+        team = Team.objects.filter(created_by=request.user)[0]
+
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.team = team
+            comment.created_by = request.user
+            comment.client = client
+            comment.save()
+
+            return redirect('clients:detail', pk=pk)
+
+    else:
+        form = AddCommentForm
+
     return render(request, 'client/client_detail.html', {
-        'client': client
+        'client': client,
+        'form': form
     })
 
 

@@ -24,6 +24,27 @@
         <hr class="my-4">
 
         <a href="{% url 'clients:list' %}">Back to clients</a>
+
+        <hr class="my-4">
+
+        <h2 class="text-xl">Comments</h2>
+        <div class="space-y-4 mt-6">
+            {% for comment in client.comments.all %}
+            <p><strong>{{ comment.created_by }}</strong></p>
+            <p class="text-xs">{{ comment.created_at }}</p>
+                <div class="bg-gray-100 py-6 px-6 rounded-xl mt-2 mb-2">
+                    {{ comment.content }}
+                </div>
+            {% endfor %}
+        </div>
+
+        <form action="{% url 'clients:add_comment' client.id%}" method="post">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button class="px-6 rounded-xl text-white py-3 bg-green-700">Submit Comment</button>
+        </form>
     </div>
 </div>
 
