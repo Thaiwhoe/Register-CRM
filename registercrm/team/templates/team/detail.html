@@ -1,0 +1,21 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Team Detail - {{ team.name}}{% endblock %}
+
+{% block content %}
+
+    <div class="p-4 sm:ml-64 py-6 px-6">
+        <h1 class="text-xl"><strong>{{ team.name}}</strong></h1>
+
+        <p>Team Owner: {{team.created_by}}</p>
+        
+        <hr class="my-4">
+        <h2 class="font-semibold">Team Members</h2>
+
+        {% for member in team.members.all %}
+            <p>{{ member.username }}</p>
+        {% endfor %}
+    </div>
+
+
+{% endblock %}

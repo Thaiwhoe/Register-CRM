@@ -6,9 +6,10 @@
     <div class="p-4 sm:ml-64">
         <div class="py-3 px-3">
             <h1 class="mb-4 text-xl">All Leads</h1>
-            <a href="{% url 'leads:add' %}" class="inline-block py-4 px-6 bg-green-700 rounded-xl text-white">New Lead</a>
-            <a class="px-6 rounded-xl text-white py-4 px-6 bg-red-700" href="{% url 'leads:export' %}">Export as CSV</a>
-
+            <div class="flex justify-between">
+                <a href="{% url 'leads:add' %}" class="inline-block py-4 px-6 bg-green-700 rounded-xl text-white">New Lead</a>
+                <a class="px-6 rounded-xl text-white py-4 px-6 bg-red-700" href="{% url 'leads:export' %}">Export as CSV</a>
+            </div>
             {% if object_list %}
                 <div class="mt-6 px-2 flex justify-between">
                     <p class="py-4 px-2 bg-gray-200 font-semibold w-full">Name</p>

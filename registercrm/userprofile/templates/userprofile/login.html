@@ -1,46 +1,29 @@
+{% load static %}
+
 <!doctype html>
 
 <html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="{% static 'main.min.css' %}">
 
-        <title>Register CRM - Login</title>
+        <title>Log in</title>
     </head>
-    <body>
-        <nav class="py-6 px-6 bg-gray-50 dark:bg-gray-800 flex justify-between">
-            <a href="/" class="text-white">Register CRM</a>
-        </nav>
-            <a href="/" class="text-white">Register CRM</a>
-            <div class="p-4 sm:ml-64">
-                <h1 class="text-xl">Sign Up</h1>
-            
-                <form method="post" action=".">
-                    {% csrf_token %}
-            
-                    {{ form.as_p }}
-            
-                    <button class="py-4 px-4 bg-teal-500 text-white rounded-xl">Login</button>
-                </form>
-        </div>
-            
-            {% if messages %}
-                <div class="py-6 px-6 text-grey">
-                    {% for message in messages %}
-                        <div class="py-4 px-4 bg-teal-300 rounded-xl">
-                            {{ message }}
-                        </div>
-                    {% endfor %}
-                </div>
+    {% include 'core/partials/nav.html' %}
 
-            {% endif %}
-        </div>
-                 
-        <div>
-            <footer class="py-8 text-center bg-gray-200">
-                <p class="text-xs text-grey-700">Copyright (c) 2023 - Register CRM</p>
-            </footer>
-        </div>
-    </body>
+    {% block content %}
+    <div class="py-6 px-6">
+        <h1 class="mb-6 text-xl">Log in</h1>
+                
+        <form method="post" action=".">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button class="mt-6 py-4 px-4 bg-teal-500 text-white rounded-xl">Login</button>
+        </form>
+    </div>
+    {% endblock %}
+    {% include 'core/partials/footer.html' %}
 </html>

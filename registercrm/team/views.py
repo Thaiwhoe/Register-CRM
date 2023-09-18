@@ -8,6 +8,13 @@ from .forms import TeamForm
 
 
 @login_required
+def detail(request, pk):
+    team = get_object_or_404(Team, created_by=request.user, pk=pk)
+
+    return render(request, 'team/detail.html', {'team': team})
+
+
+@login_required
 def edit_team(request, pk):
     team = get_object_or_404(Team, created_by=request.user, pk=pk)
 
@@ -18,7 +25,7 @@ def edit_team(request, pk):
             form.save()
 
             messages.success(request, 'Changes was saved')
-            return redirect('myaccount')
+            return redirect('userprofile:myaccount')
     else:
         form = TeamForm(instance=team)
 

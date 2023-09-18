@@ -1,9 +1,21 @@
-{% extends 'core/base.html' %}
+{% load static %}
 
-{% block title %}About Register CRM{% endblock %}
+<!doctype html>
 
-{% block content %}
-<div class="p-4 sm:ml-64">
-    <p>This is the about page</p>
-</div>
-{% endblock %}
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'main.min.css' %}">
+
+        <title>Log in</title>
+    </head>
+    {% include 'core/partials/nav.html' %}
+
+    {% block content %}
+    <div class="p-4 sm:ml-64">
+        <p>This is the about page</p>
+    </div>
+    {% endblock %}
+    {% include 'core/partials/footer.html' %}
+</html>

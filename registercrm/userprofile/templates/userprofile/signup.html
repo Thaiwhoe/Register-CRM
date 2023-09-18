@@ -1,17 +1,29 @@
-{% extends 'core/base.html' %}
+{% load static %}
 
-{% block title %}Sign up{% endblock %}
+<!doctype html>
 
-{% block content %}
-<div class="p-4 sm:ml-64">
-    <h1 class="text-xl">Sign Up</h1>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'main.min.css' %}">
 
-    <form method="post" action=".">
-        {% csrf_token %}
+        <title>Log in</title>
+    </head>
+    {% include 'core/partials/nav.html' %}
 
-        {{ form.as_p }}
+    {% block content %}
+        <div class="py-6 px-6">
+            <h1 class="mb-6 text-xl">Sign Up</h1>
 
-        <button class="py-4 px-4 bg-teal-500 text-white rounded-xl">Submit</button>
-    </form>
-</div>
-{% endblock %}
+            <form method="post" action=".">
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+                <button class="py-4 px-4 bg-teal-500 text-white rounded-xl">Submit</button>
+            </form>
+        </div>
+    {% endblock %}
+    {% include 'core/partials/footer.html' %}
+</html>

@@ -58,9 +58,13 @@ Todo List
     -DONE- Replace the leads convert with a class based view
 
 -DONE- Export information of leads, clients as CSV etc
-- communicate with each other
 -DONE- Add comments and similar leads and clients
 -DONE- Upload documents/files to leads and clients
+-DONE- Replace the dispatch with loginrequiredmixin
+-DONE Show active team in Menu
+-DONE Team deatail page with member List
+-DONE clean up base.html with includes
+-DONE fix styling for login and sign up
 
 -- Implement a payment solution/ Subscription / Monthly recurring payment
 -- Deploy
