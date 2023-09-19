@@ -9,7 +9,9 @@
 
         <div class="flex justify-between">
             <a href="{% url 'clients:add' %}" class="inline-block py-4 px-6 bg-green-700 rounded-xl text-white">Add Clients</a>
-            <a class="px-6 rounded-xl text-white py-4 px-6 bg-red-700" href="{% url 'clients:export' %}">Export as CSV</a>
+            <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 py-4 px-6 rounded inline-flex rounded-xl items-center"><svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
+                <a href="{% url 'clients:export' %}">Export as CSV</a>
+            </button>
         </div>
         {% if clients %}
             <div class="mt-6 px-2 flex justify-between">
