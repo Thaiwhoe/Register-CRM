@@ -1,6 +1,6 @@
 <nav class="py-6 px-6 bg-gray-50 dark:bg-gray-800 flex justify-between">
     {% if request.user.is_authenticated %}
-    <a href="{% url 'team:detail' active_team.id %}" class="mt-2 text-white"><strong>{{active_team.name}}</strong></a>
+    <a href="{% url 'team:detail' active_team.id %}" class="mt-2 text-white"><strong>{{ active_team.name }}</strong></a>
     {% else %}
      <a href="{% url 'index' %}" class="text-white">Register CRM</a>
     {% endif %}

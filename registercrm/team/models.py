@@ -14,12 +14,12 @@ class Plan(models.Model):
 
 
 class Team(models.Model):
-    plan = models.ForeignKey(Plan, related_name='teams',
+    plan = models.ForeignKey(Plan, related_name='teams', blank=True, null=True,
                              on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     members = models.ManyToManyField(User, related_name='teams')
     created_by = models.ForeignKey(
-        User, related_name='craeted_teams', on_delete=models.CASCADE)
+        User, related_name='created_teams', on_delete=models.CASCADE)
     created_at = models.DateField(auto_now=True)
 
     def __str__(self):
