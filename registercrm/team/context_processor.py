@@ -1,4 +1,5 @@
 from .models import Team
+from .models import User
 
 
 def active_team(request):

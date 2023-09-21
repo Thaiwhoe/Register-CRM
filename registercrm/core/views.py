@@ -11,8 +11,6 @@ def about(request):
 
 
 def userInfo(request):
-    name = request.user.username[:2]
-
-    return render(request, {
-        'name': name
-    })
+    short_name = request.user.username[:2]
+    print(short_name)
+    return {'short_name': short_name}
