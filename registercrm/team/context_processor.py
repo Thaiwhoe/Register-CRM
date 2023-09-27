@@ -12,3 +12,10 @@ def active_team(request):
         active_team = None
 
     return {'active_team': active_team}
+
+
+def short_name(request):
+    short_name = request.user.username[:2].upper()
+    return {
+        'short_name': short_name
+    }

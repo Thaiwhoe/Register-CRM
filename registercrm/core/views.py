@@ -3,7 +3,11 @@ from django.shortcuts import render
 
 
 def index(request):
-    return render(request, 'core/index.html')
+    short_name = request.user.username[:2]
+    print(short_name)
+    return render(request, 'core/index.html', {
+        'short_name': short_name
+    })
 
 
 def about(request):
