@@ -11,7 +11,6 @@ def index(request):
 
 
 def about(request):
-    print(team.clients.all)
     return render(request, 'core/about.html')
 
 
