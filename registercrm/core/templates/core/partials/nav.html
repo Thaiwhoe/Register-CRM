@@ -1,6 +1,12 @@
 <nav class="py-6 px-6 bg-gray-50 dark:bg-gray-800 flex justify-between">
     {% if request.user.is_authenticated %}
-    <a href="{% url 'team:detail' active_team.id %}" class="mt-2 text-white"><strong>{{ active_team.name }}</strong></a>
+    <div class="flex">
+        <a href="{% url 'team:detail' active_team.id %}" class="mt-2 text-white"><strong>{{ active_team.name }}</strong></a>
+        <span class="relative flex ml-3 h-3 w-3">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-teal-500"></span>
+          </span>
+    </div>
     {% else %}
      <a href="{% url 'index' %}" class="text-white">Register CRM</a>
     {% endif %}
